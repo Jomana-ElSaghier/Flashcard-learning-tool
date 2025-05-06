@@ -1,4 +1,3 @@
-// Flashcard data
 const flashcards = [
     {
       question: "What is the capital of France?",
@@ -24,30 +23,34 @@ const flashcards = [
   ];
   
   let currentIndex = 0;
+
+  const cardFront = document.getElementById("card-front").querySelector("p");
+  const cardBack = document.getElementById("card-back").querySelector("p");
+  const flashcard = document.getElementById("flashcard");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
   
-  // DOM elements
-  const frontText = document.getElementById('card-front').querySelector('p');
-  const backText = document.getElementById('card-back').querySelector('p');
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  
-  // Load card content
   function loadCard(index) {
-    frontText.textContent = flashcards[index].question;
-    backText.textContent = flashcards[index].answer;
+    cardFront.textContent = flashcards[index].question;
+    cardBack.textContent = flashcards[index].answer;
   }
   
-  // Event listeners
-  nextBtn.addEventListener('click', () => {
+  flashcard.addEventListener("click", () => {
+    flashcard.classList.toggle("flipped");
+  });
+  
+  nextBtn.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % flashcards.length;
     loadCard(currentIndex);
+    flashcard.classList.remove("flipped");
   });
   
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
     loadCard(currentIndex);
+    flashcard.classList.remove("flipped");
   });
   
-  // Initial load
   loadCard(currentIndex);
+  
   
