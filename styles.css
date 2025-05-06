@@ -1,3 +1,4 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -13,71 +14,91 @@ body {
   align-items: center;
 }
 
-.flashcard-wrapper {
+/* Container */
+.flashcard-container {
+  width: 100%;
+  max-width: 400px;
+  perspective: 1000px;
   text-align: center;
 }
 
-/* Flashcard Container */
-.flashcard-container {
-  padding: 20px;
-  margin: auto;
-}
-
-/* Flashcard - fixed size */
+/* Flashcard */
 .flashcard {
-  width: 600px;
+  position: relative;
+  width: 100%;
   height: 550px;
-  display: flex;
-  flex-direction: row;
   border-radius: 20px;
-  background-color: #FFFDF9;
+  background-color: #FFF;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
 }
 
-.flashcard:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+/* Flip */
+.flashcard.flipped {
+  transform: rotateY(180deg);
 }
 
-/* Card Sides - fixed width and height */
+/* Card Sides */
 .card-side {
-  width: 50%;           /* Half of flashcard width */
-  height: 100%;         /* Full height of flashcard */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   padding: 30px;
   font-size: 18px;
-  color: #000000;
-  text-align: center;
+  color: #000;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  border-radius: 20px;
 }
 
 .front {
   background-color: #FFFDF9;
-  border-right: 2px dashed #D3D3D3;
 }
 
 .back {
   background-color: #E3F2FD;
+  transform: rotateY(180deg);
 }
 
 /* Navigation Buttons */
 .controls {
   margin-top: 20px;
 }
+
 .controls button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  font-size: 16px;
   background-color: #3498DB;
   color: white;
   border: none;
-  border-radius: 6px;
+  padding: 12px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
+
 .controls button:hover {
   background-color: #2980B9;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flashcard {
+    height: 400px;
+  }
+
+  .card-side {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  .controls button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
