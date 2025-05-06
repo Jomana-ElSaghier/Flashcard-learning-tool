@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flashcard</title>
+  <title>Flashcards</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="flashcard-container">
-    <div class="flashcard">
-      <div class="card-side front">
-        <p>What is the capital of France?</p>
-      </div>
-      <div class="card-side back">
-        <p>Paris</p>
+  <div class="flashcard-wrapper">
+    <div class="flashcard-container">
+      <div class="flashcard" id="flashcard">
+        <div class="card-side front" id="card-front">
+          <p></p>
+        </div>
+        <div class="card-side back" id="card-back">
+          <p></p>
+        </div>
       </div>
     </div>
+    <div class="controls">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
   </div>
+
+  <script src="Script.js"></script>
 </body>
 </html>
 
