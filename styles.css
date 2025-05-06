@@ -1,63 +1,83 @@
-/* Reset & Base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #EAE7DC;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Container */
-  .flashcard-container {
-    width: 100%;
-    max-width: 600px; /* narrower width */
-    height: 600px;     /* taller height */
-    padding: 20px;
-  }
-  
-  /* Flashcard */
-  .flashcard {
-    display: flex;                  /* now horizontal */
-    flex-direction: row;           /* side-by-side */
-    height: 100%;
-    border-radius: 20px;
-    background-color: #FFFDF9; /* Front card base */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background-color: #fff;
-  }
-  .flashcard:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-  }
-  
-  /* Card Sides */
-  .card-side {
-    width: 50%;                    /* each side takes half width */
-    padding: 30px;
-    font-size: 18px;
-    color: #000000;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Front and Back Styling */
-  .front {
-    background-color: #FFFDF9; 
-    border-right: 2px dashed #D3D3D3;
-  }
-  
-  .back {
-    background-color: #E3F2FD; 
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EAE7DC;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard-wrapper {
+  text-align: center;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+  padding: 20px;
+  margin: auto;
+}
+
+/* Flashcard - fixed size */
+.flashcard {
+  width: 600px;
+  height: 550px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  background-color: #FFFDF9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Sides - fixed width and height */
+.card-side {
+  width: 50%;           /* Half of flashcard width */
+  height: 100%;         /* Full height of flashcard */
+  padding: 30px;
+  font-size: 18px;
+  color: #000000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  background-color: #FFFDF9;
+  border-right: 2px dashed #D3D3D3;
+}
+
+.back {
+  background-color: #E3F2FD;
+}
+
+/* Navigation Buttons */
+.controls {
+  margin-top: 20px;
+}
+.controls button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  background-color: #3498DB;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.controls button:hover {
+  background-color: #2980B9;
+}
